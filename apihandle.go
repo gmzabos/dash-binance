@@ -8,22 +8,23 @@ import (
 	"net/http"
 )
 
-// bookTicker structure
-type BookTicker []struct {
-	Symbol   string `json:"symbol"`
-	BidPrice string `json:"bidPrice"`
-	BidQty   string `json:"bidQty"`
-	AskPrice string `json:"askPrice"`
-	AskQty   string `json:"askQty"`
+// Define price structure input
+type Price []struct {
+	Symbol 	string `json:"symbol"`
+	Price 	string `json:"price"`
 }
 
+// This is all of our functions
 func main() {
-	get()
+	getBnbEur()
+	getEthEur()
+	getBnbEth()
+	getXlmEth()
 }
 
-func get() {
-	fmt.Println("...API Query...")
-	resp, err := http.Get("https://api.binance.com/api/v3/ticker/bookTicker")
+// GET function, simple API Query for BNBEUR
+func getBnbEur() {
+	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=BNBEUR")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -32,8 +33,60 @@ func get() {
 	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 
 	bodyString := string(bodyBytes)
-	fmt.Println("API Response as String:\n" + bodyString)
+	fmt.Println(bodyString)
 
-	var bookTickerStruct BookTicker
-	json.Unmarshal(bodyBytes, &bookTickerStruct)
+	var PriceStruct Price
+	json.Unmarshal(bodyBytes, &PriceStruct)
+}
+
+// GET function, simple API Query for ETHEUR
+func getEthEur() {
+	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=ETHEUR")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	defer resp.Body.Close()
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
+	bodyString := string(bodyBytes)
+	fmt.Println(bodyString)
+
+	var PriceStruct Price
+	json.Unmarshal(bodyBytes, &PriceStruct)
+}
+
+
+// GET function, simple API Query for BNBETH
+func getBnbEth() {
+	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=BNBETH")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	defer resp.Body.Close()
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
+	bodyString := string(bodyBytes)
+	fmt.Println(bodyString)
+
+	var PriceStruct Price
+	json.Unmarshal(bodyBytes, &PriceStruct)
+}
+
+// GET function, simple API Query for BNBEUR
+func getXlmEth() {
+	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=XLMETH")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	defer resp.Body.Close()
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
+	bodyString := string(bodyBytes)
+	fmt.Println(bodyString)
+
+	var PriceStruct Price
+	json.Unmarshal(bodyBytes, &PriceStruct)
 }
