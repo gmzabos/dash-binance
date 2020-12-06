@@ -15,7 +15,8 @@ func main() {
 	getUnfiBnb()
 }
 
-// GET function, simple API Query for BNBEUR
+// GET function
+// API Query for BNBEUR
 func getBnbEur() {
 	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=BNBEUR")
 	if err != nil {
@@ -37,7 +38,8 @@ json.Unmarshal([]byte(bodyString), &price)
 fmt.Printf("Symbol: %s, Price: %s\n", price.Symbol, price.Price)
 }
 
-// GET function, simple API Query for ETHEUR
+// GET function
+// API Query for XLMBNB
 func getXlmBnb() {
 	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=XLMBNB")
 	if err != nil {
@@ -60,7 +62,8 @@ fmt.Printf("Symbol: %s, Price: %s\n", price.Symbol, price.Price)
 }
 
 
-// GET function, simple API Query for BNBETH
+// GET function
+// API Query for BNBETH
 func getUnfiBnb() {
 	resp, err := http.Get("https://api.binance.com/api/v3/ticker/price?symbol=UNFIBNB")
 	if err != nil {
