@@ -1,15 +1,16 @@
 # dash-binance
-Dashboard your favorite data from the Binance API.
+Command line tool to query the Binance API.
 
 ## Simple mode
 
-- Run the dashboard in simple mode from a terminal window ("ticker")
+- Run the `dash-binance` cli in a terminal window
 
-### Build for ticker mode
-- `cd ticker`
-- `go build ticker.go` 
-- `watch -n 30 -c "./ticker"` to have the dashboard display in ticker mode, updating with interval as defined with `-n xx` seconds.
+### Build the `dash-binance` cli
+- `cd cli`
+- `go build dash-binance.go` 
+- `watch -n 30 -c "./dash-binance"` to have the dashboard display in ticker mode, updating with interval as defined with `-n xx` seconds.
 
-## Complex mode
-
-- Complex mode is currently WIP
+### WIP
+- remove hard coded symbol for trading pair BNBEUR
+- add arguments, options, flags handling for naming trading pairs dynamically
+- add API key management
