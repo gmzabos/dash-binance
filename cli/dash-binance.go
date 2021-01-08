@@ -26,12 +26,12 @@ func getSymbol() {
 	bodyString := string(bodyBytes)
 
 	// Define price structure input
-	type BnbPrice struct {
+	type PriceStruct struct {
 		Symbol string `json:"symbol"`
 		Price  string `json:"price"`
 	}
 
-	var price BnbPrice
+	var price PriceStruct
 	json.Unmarshal([]byte(bodyString), &price)
 	fmt.Printf("Symbol: %s, Price: %s\n", price.Symbol, price.Price)
 }
