@@ -13,11 +13,11 @@ import (
 
 // All functions
 func main() {
-	getSymbol()
+	GetSymbol()
 }
 
 // API Query for trade pair symbol
-func getSymbol() {
+func GetSymbol() {
 
 	// Set and explain flag(s)
 	tpPtr := flag.String("tp", "", "Trade pair symbol to query. (Required)")
